@@ -1,0 +1,19 @@
+[Unit]
+
+Description=Daemon wrapper for rhost
+After=network.target
+
+[Service]
+
+User=rhost
+WorkingDirectory=/home/rhost/trunk/Server/game
+ExecStart=/home/rhost/trunk/Server/game/system.d/start.sh
+ExecStop=/home/rhost/trunk/Server/game/system.d/stop.sh
+
+Type=forking
+TimeoutStopSec=10
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
